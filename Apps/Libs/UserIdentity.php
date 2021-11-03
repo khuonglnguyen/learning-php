@@ -19,7 +19,7 @@ class Apps_Libs_UserIdentity
 
     public function login()
     {
-        $db=new Apps_Libs_DbConnection();
+        $db=new Apps_Models_Users();
         $query = $db->buildQueryParams([
             'where'=>'username =:username AND password=:password',
             'params'=>[
@@ -27,7 +27,6 @@ class Apps_Libs_UserIdentity
                 ':password'=>$this->encrytPassword()
             ]
             ])->selectOne();
-
             if ($query) {
                 $_SESSION['userId']=$query['id'];
                 $_SESSION['username']=$query['username'];

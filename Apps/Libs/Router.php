@@ -3,6 +3,7 @@ class Apps_Libs_Router
 {
     const PARAM_NAME = 'r';
     const HOME_PAGE = 'home';
+    const LOGIN_PAGE = 'login';
     const INDEX_PAGE = 'index';
 
     public static $sourcePath;
@@ -62,6 +63,16 @@ class Apps_Libs_Router
     public function redirect($url)
     {
         $path=$this->createUrl($url);
-        header('Location:$u');
+        header('Location:'.$path);
+    }
+
+    public function homePage()
+    {
+        $this->redirect(self::HOME_PAGE);
+    }
+
+    public function loginPage()
+    {
+        $this->redirect(self::LOGIN_PAGE);
     }
 }

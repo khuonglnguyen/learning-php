@@ -41,7 +41,7 @@ class Apps_Libs_DbConnection
 
     public function buildQueryParams($params){
         $default=[
-            "select"=>"",
+            "select"=>"*",
             "where"=>"",
             "other"=>"",
             "params"=>"",
@@ -54,13 +54,13 @@ class Apps_Libs_DbConnection
 
     public function buildCondition($condition){
         if (trim($condition)) {
-            return 'where '.$condition;
+            return ' where '.$condition;
         }
         return '';
     }
 
     public function select(){
-        $sql ='select '.$this->queryParams['select'].'from '.$this->tableName.$this->buildCondition($this->queryParams['where']).' '.$this->queryParams['other'];
+        $sql ='select '.$this->queryParams['select'].' from '.$this->tableName.$this->buildCondition($this->queryParams['where']).' '.$this->queryParams['other'];
         $query = $this->query($sql,$this->queryParams['params']);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
