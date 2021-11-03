@@ -91,6 +91,6 @@ class Apps_Libs_DbConnection
 
     public function delete(){
         $sql = 'delete from '.$this->tableName.' '.$this->buildCondition($this->queryParams['where']).' '.$this->queryParams['other'];
-        return $this->query($sql);
+        return $this->query($sql,$this->queryParams['params']);
     }
 }

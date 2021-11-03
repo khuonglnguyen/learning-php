@@ -75,4 +75,10 @@ class Apps_Libs_Router
     {
         $this->redirect(self::LOGIN_PAGE);
     }
+
+    public function errorPage($error)
+    {
+        echo $error;
+        die();
+    }
 }

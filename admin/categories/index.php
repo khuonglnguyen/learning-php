@@ -26,9 +26,9 @@ $router = new Apps_Libs_Router();
             <?php foreach($query as $row) {?>
                 <tr>
                     <td><?= $row['id'] ?></td>
-                    <td><a href="<?= $router->createUrl('categories/detail'), ['id' => $row['id']] ?>"><?= $row['name'] ?></a></td>
+                    <td><a href="<?= $router->createUrl('categories/detail', ['id' => $row['id']]) ?>"><?= $row['name'] ?></a></td>
                     <td><?= $row['created_time'] ?></td>
-                    <td><a href="<?= $router->createUrl('categories/delete') ?>">Delete</a></td>
+                    <td><a href="<?= $router->createUrl('categories/delete',['id'=>$row['id']]) ?>">Delete</a></td>
                 </tr>
                 <?php }?>
         </table>
