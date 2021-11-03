@@ -50,4 +50,18 @@ class Apps_Libs_Router
         echo 'Page not found 404';
         die();
     }
+
+    public function createUrl($url,$params=[])
+    {
+        if ($url) {
+            $params[self::PARAM_NAME]=$url;
+        }
+        return $_SERVER['PHP_SELF'].'?'.http_build_query($params);
+    }
+
+    public function redirect($url)
+    {
+        $path=$this->createUrl($url);
+        header('Location:$u');
+    }
 }
