@@ -13,7 +13,7 @@ $router = new Apps_Libs_Router();
     <div class="show-data">
         <ul>
             <li><a href="<?= $router->createUrl('post/post') ?>">Manage Posts</a></li>
-            <li><a href="<?= $router->createUrl('category/cate') ?>">Manage Category</a></li>
+            <li><a href="<?= $router->createUrl('categories/index') ?>">Manage Category</a></li>
             <li><a href="<?= $router->createUrl('user/users') ?>">Manage Users</a></li>
         </ul>
     </div>
