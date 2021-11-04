@@ -13,6 +13,7 @@ $router = new Apps_Libs_Router();
         <p>Hi <?= $user->getSESSION('username') ?>
             <a href="<?= $router->createUrl('logout') ?>">Logout</a>, Welcome to News
         </p>
+        <h2>CATEGORIES MANAGE</h2>
         <a href="<?= $router->createUrl('categories/detail') ?>">Add new</a>
     </div>
     <div class="show-data">

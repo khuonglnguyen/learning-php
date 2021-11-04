@@ -46,7 +46,8 @@ class Apps_Libs_DbConnection
             "other"=>"",
             "params"=>"",
             "field"=>"",
-            "value"=>[]
+            "value"=>[],
+            'join'=>''
         ];
         $this->queryParams = array_merge($default,$params);
         return $this;
@@ -60,7 +61,7 @@ class Apps_Libs_DbConnection
     }
 
     public function select(){
-        $sql ='select '.$this->queryParams['select'].' from '.$this->tableName.$this->buildCondition($this->queryParams['where']).' '.$this->queryParams['other'];
+        $sql ='select '.$this->queryParams['select'].' from '.$this->tableName.' '.$this->queryParams['join'].' '.$this->buildCondition($this->queryParams['where']).' '.$this->queryParams['other'];
         $query = $this->query($sql,$this->queryParams['params']);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
